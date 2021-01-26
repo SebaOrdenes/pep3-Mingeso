@@ -1,1 +1,3 @@
-# pep3-Mingeso
+# vue-calculator
+
+npm run serve
