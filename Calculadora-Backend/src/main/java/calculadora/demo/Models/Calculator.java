@@ -4,6 +4,8 @@ public class Calculator {
     private String numberOne;
     private String numberTwo;
 
+
+
     public String getNumberOne() {
         return numberOne;
     }
@@ -19,4 +21,5 @@ public class Calculator {
     public void setNumberTwo(String numberTwo) {
         this.numberTwo = numberTwo;
     }
+
 }

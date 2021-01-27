@@ -2,10 +2,7 @@ package calculadora.demo.Services;
 
 import calculadora.demo.Models.Calculator;
 import calculadora.demo.Repositories.CalculatorRepository;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
@@ -15,19 +12,19 @@ public class CalculatorService {
     public CalculatorService(CalculatorRepository calculatorRepository) {
         this.calculatorRepository = calculatorRepository;
     }
-    @PostMapping("/add")
+    @GetMapping("/add")
     public String add(@RequestBody Calculator calculator){
         return calculatorRepository.add(calculator);
     }
-    @PostMapping("/subtract")
+    @GetMapping("/subtract")
     public String subtract(@RequestBody Calculator calculator){
         return calculatorRepository.subtract(calculator);
     }
-    @PostMapping("/multiply")
+    @GetMapping("/multiply")
     public String multiply(@RequestBody Calculator calculator){
         return calculatorRepository.multiply(calculator);
     }
-    @PostMapping("/divide")
+    @GetMapping("/divide")
     public String divide(@RequestBody Calculator calculator){
         return calculatorRepository.divide(calculator);
     }
