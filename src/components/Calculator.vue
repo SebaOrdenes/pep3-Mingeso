@@ -1,16 +1,15 @@
 <template>
 <form name="calc"> 
-<input string="number" name="operando1" v-model="operando1" > 
+Numero 1: <input string="number" name="operando1" v-model="operando1" > 
 <br> 
-<input string="number" name="operando2" v-model="operando2"> 
+Numero 2: <input string="number" name="operando2" v-model="operando2"> 
 <br> 
  <button v-on:click="suma"> + </button>
-<input type="Button" name="" value=" + " onclick="suma"> 
 <input type="Button" name="" value=" - " onclick="calcula('-')"> 
 <input type="Button" name="" value=" X " onclick="calcula('*')"> 
 <input type="Button" name="" value=" / " onclick="calcula('/')"> 
 <br> 
-
+Resultado: {{result}}
 
 </form>
 </template>
@@ -35,8 +34,15 @@ export default {
             .catch(err =>{
               console.log(err);
             })
-          },
+          
+          axios.get('http://localhost:8081/add')
+                  .then(response =>{
+                      this.result = response.data
+                    })
+                  .catch(e=>{
+                    this.erros.push(e)
+                  })
    	
-} 
+} }
 
 </script>
