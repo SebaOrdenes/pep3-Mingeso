@@ -20,29 +20,36 @@ export default {
     return {
       operando1: 0,
       operando2: 0,
-      result:null,
+      result:'',
     }
   },
-     suma(){
-            axios.post('http://localhost:8081/add', {
-              numberOne:this.operando1,
-              numberTwo: this.operando2
-            })
-            .then(Response => {
-              console.log(Response.data);
-            })
-            .catch(err =>{
-              console.log(err);
-            })
-          
-          axios.get('http://localhost:8081/add')
-                  .then(response =>{
-                      this.result = response.data
-                    })
-                  .catch(e=>{
-                    this.erros.push(e)
-                  })
-   	
-} }
+     suma(){ 
+      axios.get('http://localhost:8081/add', {
+        params: {
+             numberOne: this.operando1,
+             numberTwo: this.operando2,
+        }
+      }) 
+      .then(response =>{
+                  this.result = response.data;
+                })
+        .catch(e=>{
+                this.erros.push(e);
+              })
+      
+     
+
+
+
+
+
+
+
+
+     }
+ 
+ 
+ 
+ }
 
 </script>
