@@ -12,19 +12,19 @@ public class CalculatorService {
     public CalculatorService(CalculatorRepository calculatorRepository) {
         this.calculatorRepository = calculatorRepository;
     }
-    @GetMapping("/add")
+    @PostMapping("/add")
     public String add(@RequestBody Calculator calculator){
         return calculatorRepository.add(calculator);
     }
-    @GetMapping("/subtract")
+    @PostMapping("/subtract")
     public String subtract(@RequestBody Calculator calculator){
         return calculatorRepository.subtract(calculator);
     }
-    @GetMapping("/multiply")
+    @PostMapping("/multiply")
     public String multiply(@RequestBody Calculator calculator){
         return calculatorRepository.multiply(calculator);
     }
-    @GetMapping("/divide")
+    @PostMapping("/divide")
     public String divide(@RequestBody Calculator calculator){
         return calculatorRepository.divide(calculator);
     }
